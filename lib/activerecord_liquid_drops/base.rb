@@ -6,7 +6,7 @@ module ActiverecordLiquidDrops
   class Base < ::Liquid::Drop
     def initialize(resource)
       @resource = resource
-      super
+      super()
     end
 
     def self.all_drops
@@ -27,7 +27,7 @@ module ActiverecordLiquidDrops
     end
 
     def self.model_klass
-      class_name.gsub('Drops', '').constantize
+      self.to_s.gsub('Drops', '').constantize
     end
   end
 end
